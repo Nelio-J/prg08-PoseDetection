@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-![screenshot](Application_SS_1.png)
+![screenshot](Application_SS_2.png)
 
 
 <h4 align="center">An app built on top of a trained model, using <a href="https://developers.google.com/mediapipe/solutions/vision/hand_landmarker" target="_blank">MediaPipe Hand Landmarker</a> to detect when you're pointing, which lets you play a Virtual Piano build in Javascript competitive.</h4>
@@ -17,8 +17,6 @@
   <a href="#how-to-use">How To Use</a> •
   <a href="#credits">Credits</a>
 </p>
-
-![screenshot](Application_SS_2.png)
 
 ## Key Features
 
