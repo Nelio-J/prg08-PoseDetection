@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playable Piano By Coding Techniques</title>
+    <title>Playable Piano</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -17,8 +17,10 @@
    <section id="demos" class="invisible">
        <div class="piano-container"></div>
 
-       <h2>Demo: Webcam continuous hands landmarks detection</h2>
+       <h2>Play a virtual piano with your hands!</h2>
        <p>Hold your hand in front of your webcam to get real-time hand landmarker detection.</br>Click <b>enable webcam</b> below and grant access to the webcam if prompted.</p>
+
+       <p>The detections will predict whether or not you're pointing.<br>If you are pointing, it will click wherever your index finger is pointing.<br>You can use this to play the piano keys</p>
 
        <button id="webcamButton" class="mdc-button mdc-button--raised">
            <span class="mdc-button__ripple"></span>
@@ -36,10 +38,6 @@
                <canvas class="output_canvas" id="output_canvas"></canvas>
            </div>
        </div>
-
-
-
-
    </section>
 
 <!--   <script src="script.js"></script>-->

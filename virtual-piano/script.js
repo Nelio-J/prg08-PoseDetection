@@ -203,7 +203,6 @@ const base = "./tune/";
 let keyState = {};
 let audios = {};
 
-// Function to play audio for a given key number
 function playAudio(keyNumber) {
     // If an audio is already playing for this key, return
     if (audios[keyNumber]) return;
@@ -221,7 +220,6 @@ function playAudio(keyNumber) {
 
 // Key map to map keyboard keys to piano keys
 const keyMap = {
-    // Here you can define which keys correspond to which piano keys
     "q": 1,   // First black key
     "w": 2,   // Second black key
     "e": 3,   // Third black key
@@ -429,23 +427,21 @@ function nextStep(){
     console.log("het model is geladen!")
 }
 
-// Step 6: make a classification
+// Make a classification
 function classify(inputs, landmarks) {
     nn.classify(inputs, (error, results) => {
         if (error) {
             console.error(error);
             return;
         }
-        // console.log(results); // Do something with the results
+        // console.log(results);
         displayResults(results, landmarks);
     });
 }
 
 function displayResults(results, landmarks) {
-    // Get the div where we will put the results
     const resultsDiv = document.getElementById('results');
 
-    // Clear previous results
     resultsDiv.textContent = '';
 
     // Find the result with the highest confidence
@@ -453,7 +449,6 @@ function displayResults(results, landmarks) {
     // console.log(highestConfidenceResult);
     console.log(landmarks);
 
-    // Format each result and add it to the div
     results.forEach(function(result) {
         let p = document.createElement('p');
         p.textContent = `${result.label}: ${(result.confidence * 100).toFixed(2)}%`;
@@ -461,36 +456,23 @@ function displayResults(results, landmarks) {
 
         // If the label with the highest confidence is 'hand_point', simulate a click
         if (highestConfidenceResult.label === 'hand_point') {
-            // Get the coordinates of the index fingertip (landmark point #8)
+            // Get the coordinates of the index fingertip
             let x = landmarks[8].x * window.innerWidth;
             let y = landmarks[8].y * window.innerHeight;
 
-            // Simulate a click at the specific screen position
             simulateClick(x, y);
         }
     });
 }
 
 function simulateClick(x, y) {
-    // Get the element at the specific screen position
     let targetElement = document.elementFromPoint(x, y);
 
-    // Create a new 'click' event
     const event = new MouseEvent('click', {
         bubbles: true,
         cancelable: true,
         view: window
     });
 
-    // Dispatch the event on the target element
     targetElement.dispatchEvent(event);
-}
-
-// Step 7: define a function to handle the results of your classification
-function handleResults(error, result) {
-    if(error){
-        console.error(error);
-        return;
-    }
-    console.log(result); // {label: 'red', confidence: 0.8};
 }
